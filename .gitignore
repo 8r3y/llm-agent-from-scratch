@@ -1,0 +1,10 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.env
+.mini_cursor/
+*.egg-info/
+build/
+dist/
+.claude
