@@ -26,3 +26,7 @@ dev = [
 [tool.pytest.ini_options]
 asyncio_mode = "auto"
 testpaths = ["tests"]
+markers = ["integration: needs Docker and the t1-sandbox image"]
+
+[tool.uv.build-backend]
+module-name = "miniagent"
