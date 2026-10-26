@@ -90,7 +90,9 @@ A tool with state is a class:
 from pathlib import Path
 from miniagent.builtin_tools import ReadFileTool
 
-read_file = ReadFileTool(workspace=Path("docs"))   # the model never sees or changes the root
+read_file = ReadFileTool(
+    workspace=Path("docs")
+)  # the model never sees or changes the root
 ```
 
 ## How it works

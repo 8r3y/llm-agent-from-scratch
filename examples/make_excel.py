@@ -6,13 +6,15 @@ import pandas as pd
 rng = np.random.default_rng(42)
 n = 500
 
-df = pd.DataFrame({
-    "age": rng.integers(18, 70, n),
-    "tenure_months": rng.integers(1, 60, n),
-    "monthly_spend": rng.normal(50, 15, n).round(2),
-    "support_tickets": rng.poisson(1.5, n),
-    "plan": rng.choice(["basic", "standard", "premium"], n),
-})
+df = pd.DataFrame(
+    {
+        "age": rng.integers(18, 70, n),
+        "tenure_months": rng.integers(1, 60, n),
+        "monthly_spend": rng.normal(50, 15, n).round(2),
+        "support_tickets": rng.poisson(1.5, n),
+        "plan": rng.choice(["basic", "standard", "premium"], n),
+    }
+)
 
 logit = (
     -1.0

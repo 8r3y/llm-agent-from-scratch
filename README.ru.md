@@ -90,7 +90,9 @@ asyncio.run(main())
 from pathlib import Path
 from miniagent.builtin_tools import ReadFileTool
 
-read_file = ReadFileTool(workspace=Path("docs"))   # корень модель не видит и поменять не может
+read_file = ReadFileTool(
+    workspace=Path("docs")
+)  # корень модель не видит и поменять не может
 ```
 
 ## Как это устроено
