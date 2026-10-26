@@ -12,12 +12,12 @@ from miniagent.sandbox import make_execute_python
 async def main() -> None:
     load_dotenv()
     client = AsyncOpenAI(
-        base_url="https://generativelanguage.googleapis.com/v1beta/openai/",
-        api_key=os.environ["GEMINI_API_KEY"],
+        base_url=os.environ["LLM_BASE_URL"],
+        api_key=os.environ["LLM_API_KEY"],
     )
     agent = CustomAgent(
         client,
-        model="gemini-3.5-flash-lite",
+        model=os.environ["LLM_MODEL"],
         tools=[make_execute_python(Path("data"))],
         max_steps=8,
     )

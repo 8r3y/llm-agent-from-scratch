@@ -33,7 +33,7 @@ Python-пакет: `miniagent`.
 
 ```bash
 uv sync
-cp .env.sample .env                       # впишите свой GEMINI_API_KEY
+cp .env.sample .env                       # впишите LLM_BASE_URL, LLM_API_KEY и LLM_MODEL
 docker build -t miniagent-sandbox sandbox/   # образ песочницы с pandas и scikit-learn
 
 uv run python examples/demo.py            # параллельные вызовы инструментов
@@ -43,8 +43,8 @@ uv run --with pandas --with openpyxl python examples/make_excel.py
 uv run python examples/excel_demo.py
 ```
 
-Примеры работают с Gemini через его OpenAI-совместимый endpoint. Для другого провайдера поменяйте
-`base_url` и `model` в примере.
+Примеры берут настройки провайдера из `.env`; `.env.sample` настроен на Gemini через его
+OpenAI-совместимый endpoint. Для другого провайдера поменяйте `LLM_BASE_URL` и `LLM_MODEL`.
 
 > **Docker Desktop на Windows:** добавьте папку проекта и `%LOCALAPPDATA%\Temp` в
 > *Settings → Resources → File sharing*, иначе при монтировании `/data` Docker будет каждый раз спрашивать разрешение.
@@ -74,10 +74,10 @@ def get_weather(
 
 async def main() -> None:
     client = AsyncOpenAI(
-        base_url="https://generativelanguage.googleapis.com/v1beta/openai/",
-        api_key=os.environ["GEMINI_API_KEY"],
+        base_url=os.environ["LLM_BASE_URL"],
+        api_key=os.environ["LLM_API_KEY"],
     )
-    agent = CustomAgent(client, model="gemini-3.5-flash-lite", tools=[get_weather])
+    agent = CustomAgent(client, model=os.environ["LLM_MODEL"], tools=[get_weather])
     print(await agent.run("Какая погода в Париже и в Москве?"))
 
 

@@ -18,10 +18,10 @@ def get_weather(city: str, unit: Literal["c", "f"] = "c") -> str:
 async def main() -> None:
     load_dotenv()
     client = AsyncOpenAI(
-        base_url="https://generativelanguage.googleapis.com/v1beta/openai/",
-        api_key=os.environ["GEMINI_API_KEY"],
+        base_url=os.environ["LLM_BASE_URL"],
+        api_key=os.environ["LLM_API_KEY"],
     )
-    agent = CustomAgent(client, model="gemini-3.5-flash-lite", tools=[get_weather])
+    agent = CustomAgent(client, model=os.environ["LLM_MODEL"], tools=[get_weather])
     print(await agent.run("Какая погода в Москве и в Париже, в Цельс?"))
 
 

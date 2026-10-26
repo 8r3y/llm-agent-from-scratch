@@ -33,7 +33,7 @@ Requirements: Python 3.11+, [uv](https://docs.astral.sh/uv/), Docker.
 
 ```bash
 uv sync
-cp .env.sample .env                       # put your GEMINI_API_KEY there
+cp .env.sample .env                       # set LLM_BASE_URL, LLM_API_KEY and LLM_MODEL there
 docker build -t miniagent-sandbox sandbox/   # sandbox image with pandas and scikit-learn
 
 uv run python examples/demo.py            # parallel tool calls
@@ -43,8 +43,8 @@ uv run --with pandas --with openpyxl python examples/make_excel.py
 uv run python examples/excel_demo.py
 ```
 
-The examples use Gemini through its OpenAI-compatible endpoint. To use another provider, change
-`base_url` and `model` in the example.
+The examples read the provider settings from `.env`; `.env.sample` is preconfigured for Gemini through
+its OpenAI-compatible endpoint. To use another provider, change `LLM_BASE_URL` and `LLM_MODEL`.
 
 > **Docker Desktop on Windows:** add the project folder and `%LOCALAPPDATA%\Temp` to
 > *Settings → Resources → File sharing*, otherwise mounting `/data` asks for permission on every run.
@@ -74,10 +74,10 @@ def get_weather(
 
 async def main() -> None:
     client = AsyncOpenAI(
-        base_url="https://generativelanguage.googleapis.com/v1beta/openai/",
-        api_key=os.environ["GEMINI_API_KEY"],
+        base_url=os.environ["LLM_BASE_URL"],
+        api_key=os.environ["LLM_API_KEY"],
     )
-    agent = CustomAgent(client, model="gemini-3.5-flash-lite", tools=[get_weather])
+    agent = CustomAgent(client, model=os.environ["LLM_MODEL"], tools=[get_weather])
     print(await agent.run("What's the weather in Paris and Moscow?"))
 
 
