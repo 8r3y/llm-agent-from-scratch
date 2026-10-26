@@ -1,6 +1,8 @@
-# miniagent
+# llm-agent-from-scratch
 
 [English](README.md) · **Русский**
+
+Python-пакет: `miniagent`.
 
 Ядро LLM-агента на чистом Python, без фреймворков: без LangChain и LlamaIndex.
 Собрано с нуля, чтобы показать, из чего агент состоит: схемы инструментов, цикл ReAct, песочница для кода и guardrails.
@@ -32,7 +34,7 @@
 ```bash
 uv sync
 cp .env.sample .env                       # впишите свой GEMINI_API_KEY
-docker build -t t1-sandbox sandbox/       # образ песочницы с pandas и scikit-learn
+docker build -t miniagent-sandbox sandbox/   # образ песочницы с pandas и scikit-learn
 
 uv run python examples/demo.py            # параллельные вызовы инструментов
 

@@ -1,6 +1,8 @@
-# miniagent
+# llm-agent-from-scratch
 
 **English** · [Русский](README.ru.md)
+
+Python package: `miniagent`.
 
 A framework-agnostic LLM agent core in plain Python — no LangChain, no LlamaIndex.
 Built from scratch to show the moving parts: tool schemas, the ReAct loop, a code sandbox and guardrails.
@@ -32,7 +34,7 @@ Requirements: Python 3.11+, [uv](https://docs.astral.sh/uv/), Docker.
 ```bash
 uv sync
 cp .env.sample .env                       # put your GEMINI_API_KEY there
-docker build -t t1-sandbox sandbox/       # sandbox image with pandas and scikit-learn
+docker build -t miniagent-sandbox sandbox/   # sandbox image with pandas and scikit-learn
 
 uv run python examples/demo.py            # parallel tool calls
 

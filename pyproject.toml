@@ -1,5 +1,5 @@
 [project]
-name = "t1-agent"
+name = "llm-agent-from-scratch"
 version = "0.1.0"
 description = "Framework-agnostic LLM agent core: @tool schemas, async ReAct loop, Docker sandbox and guardrails"
 readme = "README.md"
@@ -26,7 +26,7 @@ dev = [
 [tool.pytest.ini_options]
 asyncio_mode = "auto"
 testpaths = ["tests"]
-markers = ["integration: needs Docker and the t1-sandbox image"]
+markers = ["integration: needs Docker and the miniagent-sandbox image"]
 
 [tool.uv.build-backend]
 module-name = "miniagent"

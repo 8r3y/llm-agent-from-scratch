@@ -5,7 +5,7 @@ from pathlib import Path
 
 from miniagent.tools import BaseTool, tool
 
-IMAGE = "t1-sandbox"
+IMAGE = "miniagent-sandbox"
 MAX_OUTPUT_CHARS = 10_000
 
 
