@@ -1,7 +1,7 @@
 [project]
 name = "t1-agent"
 version = "0.1.0"
-description = "Add your description here"
+description = "Framework-agnostic LLM agent core: @tool schemas, async ReAct loop, Docker sandbox and guardrails"
 readme = "README.md"
 authors = [
     { name = "Andrey Potapov", email = "info@nsstms.ru" }
