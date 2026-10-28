@@ -1,0 +1,71 @@
+
+=== Раунд 1: ответы ===
+  minimax/minimax-m3.1-flash: ok, 3 с
+  deepseek/deepseek-v4.1-flash-1017: ok, 6 с
+  x-ai/grok-4.7: ok, 8 с
+  openai/gpt-6.1-sol: ok, 14 с
+  z-ai/glm-5.3: ok, 19 с
+  moonshotai/kimi-k3.1-pro: ok, 21 с
+  xiaomi/mimo-v2.6-pro: ok, 25 с
+  google/gemini-4-argon: ok, 28 с
+  qwen/qwen3.8-max-0902: ok, 39 с
+  anthropic/claude-haiku-5.5: ok, 69 с
+  раунд занял 69 с
+
+=== Раунд 2: оценка ответов ===
+  google/gemini-4-argon: ok, 21 с
+  minimax/minimax-m3.1-flash: ok, 27 с
+  deepseek/deepseek-v4.1-flash-1017: ok, 93 с
+  openai/gpt-6.1-sol: ok, 99 с
+  xiaomi/mimo-v2.6-pro: ok, 104 с
+  x-ai/grok-4.7: ok, 125 с
+  moonshotai/kimi-k3.1-pro: ok, 141 с
+  anthropic/claude-haiku-5.5: ok, 202 с
+  qwen/qwen3.8-max-0902: ok, 246 с
+  z-ai/glm-5.3: ok, 292 с
+  раунд занял 292 с
+
+=== Раунд 3: исправления ===
+  minimax/minimax-m3.1-flash: ok, 3 с
+  openai/gpt-6.1-sol: ok, 13 с
+  deepseek/deepseek-v4.1-flash-1017: ok, 21 с
+  moonshotai/kimi-k3.1-pro: ok, 27 с
+  x-ai/grok-4.7: ok, 30 с
+  google/gemini-4-argon: ok, 33 с
+  z-ai/glm-5.3: ok, 37 с
+  anthropic/claude-haiku-5.5: ok, 65 с
+  xiaomi/mimo-v2.6-pro: ok, 79 с
+  qwen/qwen3.8-max-0902: ok, 150 с
+  раунд занял 150 с
+
+=== Раунд 4: оценка исправлений ===
+  minimax/minimax-m3.1-flash: ok, 33 с
+  google/gemini-4-argon: ok, 49 с
+  z-ai/glm-5.3: ok, 84 с
+  xiaomi/mimo-v2.6-pro: ok, 89 с
+  openai/gpt-6.1-sol: ok, 169 с
+  deepseek/deepseek-v4.1-flash-1017: ok, 174 с
+  x-ai/grok-4.7: ok, 174 с
+  anthropic/claude-haiku-5.5: ok, 190 с
+  qwen/qwen3.8-max-0902: ok, 193 с
+  moonshotai/kimi-k3.1-pro: ошибка: <html><body><h1>504 Gateway Time-out</h1>
+The server didn't respond in time.
+</body></html>
+  раунд занял 901 с
+
+Вопрос: Сколько ног у сороканожки?
+
+Модель                             Effort  Раунд 2  Раунд 4     Δ  Ставит
+---------------------------------  ------  -------  -------  ----  ------
+x-ai/grok-4.7                      max         8.1      8.8  +0.6     6.6
+moonshotai/kimi-k3.1-pro           max         8.7      8.6  -0.1     6.6
+google/gemini-4-argon              max         8.6      8.5  -0.1     6.9
+z-ai/glm-5.3                       max         6.8      8.2  +1.5     7.0
+xiaomi/mimo-v2.6-pro               max         4.4      7.5  +3.1     7.2
+qwen/qwen3.8-max-0902              max         6.1      7.4  +1.3     6.9
+anthropic/claude-haiku-5.5         max         8.9      7.2  -1.6     6.6
+deepseek/deepseek-v4.1-flash-1017  max         4.6      7.1  +2.6     7.1
+openai/gpt-6.1-sol                 max         7.0      6.2  -0.8     7.1
+minimax/minimax-m3.1-flash         max         3.3      3.9  +0.5     7.7
+
+Все ответы и оценки: C:\_PROJECTS\_own\t1-python-agent-sdk-study\examples\results\intellect_selectel_20261029_011036.json

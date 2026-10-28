@@ -1,29 +1,17 @@
 import json
-import os
 import statistics
 import time
 from typing import Literal
 
-from dotenv import load_dotenv
 from openai import OpenAI
+from providers import get_provider
 
 from miniagent.tools import tool
 
-MODELS = [
-    "kimi-k3.1-pro",
-    "gemini-4-argon",
-    "gpt-6.1-sol",
-    "grok-4.7",
-    "mimo-v2.6-pro",
-    "qwen3.8-max",
-    "deepseek-v4.1-flash-1017",
-    "glm-5.3",
-    "claude-haiku-5.5",
-    "minimax-m3.1-flash",
-]
+PROVIDER, BASE_URL, API_KEY, MODELS = get_provider()
 PROMPT = "Объясни в 3 коротких абзацах, что такое ReAct-агент и чем он отличается от обычного чат-бота."
 TOOL_PROMPT = "Какая погода в Москве и в Париже, в Цельсиях?"
-RUNS = 1
+RUNS = 3
 TIMEOUT = 180
 
 
@@ -167,12 +155,8 @@ def print_errors(errors: dict) -> None:
 
 
 def main() -> None:
-    load_dotenv()
-    client = OpenAI(
-        base_url=os.environ["LLM_BASE_URL"],
-        api_key=os.environ["LLM_API_KEY"],
-        timeout=TIMEOUT,
-    )
+    print(f"Провайдер: {PROVIDER}")
+    client = OpenAI(base_url=BASE_URL, api_key=API_KEY, timeout=TIMEOUT)
 
     results, errors = run_rounds("текст", measure, client)
     rows = []
